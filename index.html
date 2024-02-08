@@ -15,12 +15,16 @@
                 src="https://giphy.com/embed/c76IJLufpNwSULPk77" width="100%" height="100%" style="position:absolute"
                 frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div>
         <div class="button-container">
-            <button class="yes-btn">Yes</button>
+            <button  class="yes-btn">Yes</button>
             <button class="no-btn">No</button>
         </div>
 
     </div>
     <div class="loader">
+
+        <div class="loader-box">
+
+        </div>
         
     </div>
     <script src="script.js"></script>
@@ -30,17 +34,22 @@
     <script>
         // Select the box element
         const box = document.querySelector('.question');
+        const yesBtn = document.querySelector(".yes-btn");
+
+        yesBtn.addEventListener("click", () => {
+            showLoader();
+        })
     
         // Create a GSAP timeline
         const tl = gsap.timeline();
     
         // Define the animation
-        tl.to(box, {
-            duration: 1,
-            x: 200, // Move the box 200px to the right
-            opacity: 0.5, // Change opacity to 0.5
-            ease: 'power2.out', // Easing function
-        });
+        // tl.to(box, {
+        //     duration: 1,
+        //     x: 200, // Move the box 200px to the right
+        //     opacity: 0.5, // Change opacity to 0.5
+        //     ease: 'power2.out', // Easing function
+        // });
     
         // You can add more animations to the timeline as needed
         // For example:
@@ -48,6 +57,27 @@
     
         // Play the animation
         tl.play();
+
+
+        function showLoader(){
+            const screen = document.querySelector('.loader');
+
+            gsap.to(screen, {
+                display: 'flex',
+                duration: 3,
+
+                onComplete: () => {
+                    gsap.to(screen, {
+                        display: 'none',
+                    });
+                }
+                
+            });
+
+           
+
+        }
+        
     </script>
     
    

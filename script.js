@@ -24,4 +24,3 @@ noBtn.addEventListener("mouseover", () => {
 });
 
 //rotate and move elements with a class of "box" ("x" is a shortcut for a translateX() transform) over the course of 1 second.
-gsap.to(".question", { rotation: 27, x: 100, duration: 1 });
